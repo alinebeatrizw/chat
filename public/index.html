@@ -30,6 +30,16 @@
             $(".mensagens").append('<div class="mensagem"> <strong>'+ mensagem.autor+' </strong>: '+mensagem.mensagem+'  </div>')
         }
 
+        socket.on("mensagensAnteriores", function(mensagens){
+            for(mensagem of mensagens){
+                renderizaMensagem(mensagem)
+            }
+        })
+
+        socket.on("mensagemRecebida", function(mensagem){
+            renderizaMensagem(mensagem)
+        })
+
         $("#chat").submit(function(event){
             event.preventDefault()
 
