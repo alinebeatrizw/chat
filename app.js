@@ -1,5 +1,4 @@
 const express = require("express")
-const { Socket } = require("node:dgram")
 const path = require("path")
 
 const app = express()
@@ -15,8 +14,14 @@ app.use("/", (req, res)=>{
     res.render("index.html")
 })
 
+var mensagens  = []
+
 io.on("connection", socket =>{
     console.log(`Socket conectado: ${socket.id}`)
+
+    socket.on("enviaMensagem", data =>{
+        mensagens.push(data)
+    })
 })
 
 

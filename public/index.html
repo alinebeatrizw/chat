@@ -23,5 +23,31 @@
     </form>
 
 
+    <script type="text/javascript">
+        var socket = io("localhost:3000/")
+
+        function renderizaMensagem(mensagem){
+            $(".mensagens").append('<div class="mensagem"> <strong>'+ mensagem.autor+' </strong>: '+mensagem.mensagem+'  </div>')
+        }
+
+        $("#chat").submit(function(event){
+            event.preventDefault()
+
+            var autor = $("input[name=username]").val()
+            var mensagem = $("input[name=mensagem]").val()
+
+            if(autor.length && mensagem.length){
+                var mensagemObject = {
+                    autor : autor,
+                    mensagem : mensagem,
+                }
+
+                renderizaMensagem(mensagemObject)
+
+                socket.emit("enviaMensagem", mensagemObject)
+            }
+        })
+    </script>
+
 </body>
 </html>
