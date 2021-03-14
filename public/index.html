@@ -8,56 +8,19 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.js"></script>
-
+   
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     
-    <form id="chat">
-
+    <form  id="chat" >
         <input type="text" name="username" placeholder="Digite seu usuário">
         <div class="mensagens"></div>
-        <input type="text" name="mensagem" placeholder="Digite sua mensagem">
-        <button type="submit">Enviar</button>
+        <input type="text" name="mensagem" placeholder="Digite sua mensagem" >
+        <button type="submit" >Enviar</button>
     </form>
 
-
-    <script type="text/javascript">
-        var socket = io("localhost:3000/")
-
-        function renderizaMensagem(mensagem){
-            $(".mensagens").append('<div class="mensagem"> <strong>'+ mensagem.autor+' </strong>: '+mensagem.mensagem+'  </div>')
-        }
-
-        socket.on("mensagensAnteriores", function(mensagens){
-            for(mensagem of mensagens){
-                renderizaMensagem(mensagem)
-            }
-        })
-
-        socket.on("mensagemRecebida", function(mensagem){
-            renderizaMensagem(mensagem)
-        })
-
-        $("#chat").submit(function(event){
-            event.preventDefault()
-
-            var autor = $("input[name=username]").val()
-            var mensagem = $("input[name=mensagem]").val()
-
-            if(autor.length && mensagem.length){
-                var mensagemObject = {
-                    autor : autor,
-                    mensagem : mensagem,
-                }
-
-                renderizaMensagem(mensagemObject)
-
-                socket.emit("enviaMensagem", mensagemObject)
-            }
-        })
-    </script>
-
+    <script src="index.js"></script>
 </body>
 </html>
