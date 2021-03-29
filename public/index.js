@@ -19,12 +19,14 @@
             event.preventDefault()
 
             var autor = $("input[name=username]").val()
-            var mensagem = $("input[name=mensagem]").val()
+            var mensagem = $("textarea[name=mensagem]").val()
+            
 
             if(autor.length && mensagem.length){
                 var mensagemObject = {
                     autor : autor,
                     mensagem : mensagem,
+                    
                 }
 
                 renderizaMensagem(mensagemObject)

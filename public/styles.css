@@ -1,47 +1,31 @@
-html, body {
-    height: 100%;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  #chat {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 2vw;
-  }
-  
-  input {
-    width: 60vw;
-    border: 1px solid #ddd;
-    height: 5vw;
-    padding: 0 2vw;
-    font-size: 1.5vw;
-  }
-  
-  button {
-    width: 60vw;
-    height: 5vw;
-    font-size: 1.5vw;
-    background: #069;
-    text-align: center;
-    line-height: 5vw;
-    font-weight: bold;
-    color: #FFF;
-    margin-top: 1vw;
+.todo{
+  width: 300px;
+  height: 462px;
+  background-color: #baefef;
+  border-radius: 11px;
+}
+.input-nome-usuario{
+  margin-left: 60px;
+  text-align: center;
+  border: none;
+  background-color: #baefef;
+}
+.fixed-blockend{
+  margin-top: 335px;
+}
+.botao-envia{
+  margin-left: 43px;
+    background-color: #447d7d;
     border: none;
-  }
-  
-  .mensagens {
-    width: 60vw;
-    height: 40vw;
-    margin: 2vw 0;
-    border: 1px solid #ddd;
-    padding: 2vw;
-  }
+    border-radius: 30px;
+    font-weight: bold;
+    width: 65px;
+    height: 37px;
+}
+.input-msg{
+  border-radius: 30px;
+  margin-block: -14px;
+  margin-left: 9px;
+  width: 174px;
+  text-align: center;
+}
